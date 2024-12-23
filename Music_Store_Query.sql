@@ -44,3 +44,22 @@ WHERE genre.name LIKE 'Rock'
 ORDER BY email;
 
 
+/* Q2: Let's invite the artists who have written the most rock music in our dataset. 
+Write a query that returns the Artist name and total track count of the top 10 rock bands. */
+
+SELECT artist.artist_id, artist.name,COUNT(artist.artist_id) AS number_of_songs
+from artist join album on artist.artist_id=album.artist_id 
+join track on track.album_id=album.album_id
+join genre on genre.genre_id = track.genre_id
+where genre.name LIKE 'Rock'
+GROUP BY artist.artist_id ORDER BY number_of_songs DESC
+LIMIT 10;
+
+
+
+/* Q3: Return all the track names that have a song length longer than the average song length. 
+Return the Name and Milliseconds for each track. Order by the song length with the longest songs listed first. */
+
+select name,milliseconds from track where milliseconds > (select avg(milliseconds) from track) order by milliseconds desc;
+
+

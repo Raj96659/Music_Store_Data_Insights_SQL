@@ -1,4 +1,4 @@
-<h>MUSIC_STORE_DATA_INSIGHTS_SQL Project</h>
+<h1>MUSIC_STORE_DATA_INSIGHTS_SQL Project</h1>
 
 Overview :
 
